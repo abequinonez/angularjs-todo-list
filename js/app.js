@@ -1,4 +1,4 @@
 const app = angular.module('todoListApp', []);
-app.controller('TodoListCtrl', () => {
+app.controller('TodoListCtrl', function() {
 
 });
