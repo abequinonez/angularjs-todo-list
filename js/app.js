@@ -28,4 +28,9 @@ app.controller('TodoListCtrl', function() {
       this.inputValue = '';
     }
   };
+
+  // Delete an item from the list of items
+  this.deleteItem = function(itemIndex) {
+    this.listItems.splice(itemIndex, 1);
+  };
 });
