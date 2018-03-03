@@ -13,7 +13,7 @@
       <h1>AngularJS To-Do List</h1>
       <input type="text" placeholder="Add a new to-do item" ng-model="ctrl.inputValue" ng-keydown="ctrl.addItem($event)">
       <ul>
-        <li ng-repeat="item in ctrl.listItems">{{item}}</li>
+        <li ng-repeat="item in ctrl.listItems track by $index">{{item}}</li>
       </ul>
     </div>
   </body>
