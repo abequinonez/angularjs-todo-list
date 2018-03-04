@@ -13,9 +13,14 @@
       <h1>AngularJS To-Do List</h1>
       <input type="text" placeholder="Add a new to-do item" ng-model="ctrl.inputValue" ng-keydown="ctrl.addItem($event)">
       <ul>
-        <li ng-repeat="item in ctrl.listItems track by $index">
-          {{item}}
-          <button ng-click="ctrl.deleteItem($index)">x</button>
+        <li ng-repeat="item in ctrl.listItems track by $index" ng-dblclick="ctrl.toggleEditMode($index)">
+          <div ng-show="item.isEditable">
+            <input type="text" ng-model="item.name" show-focus=item.isEditable ng-blur="ctrl.toggleEditMode($index, $event)" ng-keydown="ctrl.toggleEditMode($index, $event)">
+          </div>
+          <div ng-show="!item.isEditable">
+            {{item.name}}
+            <button ng-click="ctrl.deleteItem($index)">x</button>
+          </div>
         </li>
       </ul>
     </div>
