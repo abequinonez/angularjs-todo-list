@@ -12,7 +12,7 @@
   <body>
     <div class="container" ng-controller="TodoListCtrl as ctrl">
       <h1>AngularJS To-Do List</h1>
-      <input class="new-item-input" type="text" placeholder="Add a new to-do item" ng-model="ctrl.inputValue" ng-keydown="ctrl.addItem($event)">
+      <input class="new-item-input" type="text" autofocus placeholder="Add a new to-do item" ng-model="ctrl.inputValue" ng-keydown="ctrl.addItem($event)">
       <ul class="todo-list">
         <li class="item" ng-repeat="item in ctrl.listItems track by $index">
           <div class="complete-checkbox-container">
