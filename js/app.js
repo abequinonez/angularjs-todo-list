@@ -41,7 +41,8 @@ app.controller('TodoListCtrl', function() {
     if (targetKey === enterKey && containsNonWhitespaceChar) {
       this.listItems.push({
         name: this.inputValue,
-        isEditable: false
+        isEditable: false,
+        isComplete: false
       });
       this.inputValue = '';
     }
