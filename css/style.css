@@ -94,6 +94,40 @@ h1 {
   outline: none;
 }
 
+.todo-list .item .conditional-container .no-edit-container {
+  display: flex;
+}
+
+.todo-list .item .no-edit-container span {
+  width: 90%;
+}
+
+.todo-list .item .no-edit-container .delete-button-container {
+  width: 10%;
+  margin: auto 0;
+}
+
+.todo-list .item .no-edit-container .delete-button-container button {
+  visibility: hidden;
+  float: right;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  font: inherit;
+  color: #f94e47;
+  text-align: right;
+  cursor: pointer;
+  outline: none;
+}
+
+.todo-list .item .no-edit-container .delete-button-container button:hover {
+  color: #ff0000;
+}
+
+.todo-list .item .visible {
+  visibility: visible !important;
+}
+
 .todo-list .item .hidden {
   visibility: hidden;
 }

@@ -43,7 +43,8 @@ app.controller('TodoListCtrl', function() {
         id: Math.floor(Math.random() * Date.now()),
         name: this.inputValue,
         isEditable: false,
-        isComplete: false
+        isComplete: false,
+        hover: false
       });
       this.inputValue = '';
     }
@@ -70,5 +71,14 @@ app.controller('TodoListCtrl', function() {
     } else if (evt === null) {
       item.isEditable = true;
     }
+  };
+
+  /*
+  Change an item's hover state when the mouse enters or leaves that item's
+  corresponding list element.
+  */
+  this.changeHoverState = function(itemIndex) {
+    const item = this.listItems[itemIndex];
+    item.hover = !item.hover;
   };
 });

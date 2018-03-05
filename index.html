@@ -20,7 +20,7 @@
       <h1>AngularJS To-Do List</h1>
       <input class="new-item-input" type="text" autofocus placeholder="Add a new to-do item" ng-model="ctrl.inputValue" ng-keydown="ctrl.addItem($event)">
       <ul class="todo-list">
-        <li class="item" ng-repeat="item in ctrl.listItems track by item.id">
+        <li class="item" ng-mouseenter="ctrl.changeHoverState($index)" ng-mouseleave="ctrl.changeHoverState($index)" ng-repeat="item in ctrl.listItems track by item.id">
           <div class="complete-checkbox-container" ng-class="{hidden: item.isEditable}">
             <input type="checkbox" id="check-{{item.id}}" ng-model="item.complete">
             <label for="check-{{item.id}}"><span></span></label>
@@ -29,9 +29,11 @@
             <div ng-show="item.isEditable">
               <input class="edit-item-input" type="text" ng-model="item.name" show-focus=item.isEditable ng-blur="ctrl.toggleEditMode($index, $event)" ng-keydown="ctrl.toggleEditMode($index, $event)">
             </div>
-            <div ng-show="!item.isEditable">
+            <div class="no-edit-container" ng-show="!item.isEditable">
               <span ng-class="{complete: item.complete}">{{item.name}}</span>
-              <button ng-click="ctrl.deleteItem($index)">x</button>
+              <div class="delete-button-container">
+                <button ng-class="{visible: item.hover}" ng-click="ctrl.deleteItem($index)">✕</button>
+              </div>
             </div>
           </div>
         </li>
