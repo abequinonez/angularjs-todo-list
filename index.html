@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AngularJS To-Do List</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400|Shrikhand" rel="stylesheet">
+
+    <!--
+    Custom animated CSS checkbox by Paweł Durczok. Retrieved from:
+    https://codepen.io/north-of-rapture/pen/rWqega
+    -->
+    <link rel="stylesheet" href="css/checkbox.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="js/app.js"></script>
@@ -14,9 +20,10 @@
       <h1>AngularJS To-Do List</h1>
       <input class="new-item-input" type="text" autofocus placeholder="Add a new to-do item" ng-model="ctrl.inputValue" ng-keydown="ctrl.addItem($event)">
       <ul class="todo-list">
-        <li class="item" ng-repeat="item in ctrl.listItems track by $index">
-          <div class="complete-checkbox-container">
-            <input type="checkbox" ng-class="{hidden: item.isEditable}" ng-model="item.complete">
+        <li class="item" ng-repeat="item in ctrl.listItems track by item.id">
+          <div class="complete-checkbox-container" ng-class="{hidden: item.isEditable}">
+            <input type="checkbox" id="check-{{item.id}}" ng-model="item.complete">
+            <label for="check-{{item.id}}"><span></span></label>
           </div>
           <div class="conditional-container" ng-dblclick="ctrl.toggleEditMode($index)">
             <div ng-show="item.isEditable">

@@ -40,6 +40,7 @@ app.controller('TodoListCtrl', function() {
     */
     if (targetKey === enterKey && containsNonWhitespaceChar) {
       this.listItems.push({
+        id: Math.floor(Math.random() * Date.now()),
         name: this.inputValue,
         isEditable: false,
         isComplete: false
