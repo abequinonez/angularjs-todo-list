@@ -66,8 +66,9 @@ h1 {
 }
 
 .todo-list .complete-checkbox-container {
-  width: 10%;
+  width: 34px;
   margin: auto 0;
+  margin-right: 20px;
 }
 
 .todo-list .complete-checkbox-container input {
@@ -76,7 +77,7 @@ h1 {
 
 .todo-list .item .conditional-container {
   display: inline-block;
-  width: 90%;
+  width: 100%;
 }
 
 .todo-list .item .edit-item-input {
@@ -99,12 +100,13 @@ h1 {
 }
 
 .todo-list .item .no-edit-container span {
-  width: 90%;
+  width: 100%;
 }
 
 .todo-list .item .no-edit-container .delete-button-container {
-  width: 10%;
+  width: 16px;
   margin: auto 0;
+  margin-left: 20px;
 }
 
 .todo-list .item .no-edit-container .delete-button-container button {
@@ -135,4 +137,34 @@ h1 {
 .todo-list .item .complete {
   text-decoration: line-through;
   opacity: 0.5;
+}
+
+/*
+ * Media query for smaller viewport sizes
+ */
+
+@media screen and (max-width: 450px) {
+  .container {
+    margin: 0 auto;
+  }
+
+  h1 {
+    padding: 20px 10px;
+  }
+
+  .new-item-input {
+    padding: 20px 10px;
+  }
+
+  .todo-list .item {
+    padding: 20px 10px;
+  }
+
+  .todo-list .complete-checkbox-container {
+    margin-right: 12px;
+  }
+
+  .todo-list .item .no-edit-container .delete-button-container {
+    margin-left: 12px;
+  }
 }
