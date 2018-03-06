@@ -28,12 +28,27 @@ body {
   box-shadow: 0 0 3px rgba(0,0,0,0.1);
 }
 
-h1 {
+.container .title {
   margin: 0;
-  padding: 20px 20px;
+  padding: 25px 20px 12px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   font-family: "Shrikhand", cursive;
   color: rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.container .title h1 {
+  margin: 0;
+  line-height: 0.6;
+  font-size: 18px;
+  font-family: "Quicksand", sans-serif;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.container .title h2 {
+  margin: 0;
+  font-size: 32px;
 }
 
 .new-item-input {
@@ -148,8 +163,8 @@ h1 {
     margin: 0 auto;
   }
 
-  h1 {
-    padding: 20px 10px;
+  .container .title {
+    padding: 25px 10px 12px;
   }
 
   .new-item-input {
