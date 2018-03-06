@@ -16,7 +16,8 @@ body {
 }
 
 body {
-  background: #f3f3f3;
+  /* background: #f3f3f3; */
+  background: #f4df78;
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
 }
@@ -33,7 +34,7 @@ body {
   padding: 25px 20px 12px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
   font-family: "Shrikhand", cursive;
-  color: rgba(0,0,0,0.8);
+  color: #333333;
   text-align: center;
 }
 
@@ -44,11 +45,13 @@ body {
   font-family: "Quicksand", sans-serif;
   font-style: italic;
   font-weight: 300;
+  color: #ff0000;
 }
 
 .container .title h2 {
   margin: 0;
   font-size: 32px;
+  font-weight: 400;
 }
 
 .new-item-input {
