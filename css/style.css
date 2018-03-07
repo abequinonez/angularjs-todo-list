@@ -16,7 +16,6 @@ body {
 }
 
 body {
-  /* background: #f3f3f3; */
   background: #f4df78;
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
@@ -128,24 +127,23 @@ body {
 }
 
 .todo-list .item .no-edit-container .delete-button-container button {
-  visibility: hidden;
   float: right;
   padding: 0;
   border: 0;
   background-color: transparent;
   font: inherit;
-  color: #f94e47;
+  color: #d2d1d1;
   text-align: right;
   cursor: pointer;
   outline: none;
 }
 
 .todo-list .item .no-edit-container .delete-button-container button:hover {
-  color: #ff0000;
+  color: #ff0000 !important;
 }
 
 .todo-list .item .visible {
-  visibility: visible !important;
+  color: #f94e47 !important;
 }
 
 .todo-list .item .hidden {
