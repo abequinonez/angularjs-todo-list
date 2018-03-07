@@ -1,7 +1,8 @@
 const app = angular.module('todoListApp', []);
 
 /*
-Custom directive for auto-focusing on an input element. Retrieved from:
+Custom directive for auto-focusing on an input element by Bela Ezsias.
+Retrieved from:
 https://coderwall.com/p/a41lwa/angularjs-auto-focus-into-input-field-when-ng-show-event-is-triggered
 */
 app.directive('showFocus', function($timeout) {
