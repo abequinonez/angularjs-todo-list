@@ -161,21 +161,21 @@ body {
  * Media query for smaller viewport sizes
  */
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 460px) {
   .container {
-    margin: 0 auto;
+    margin: 5px;
   }
 
   .container .title {
-    padding: 25px 10px 12px;
+    padding: 25px 12px 12px;
   }
 
   .new-item-input {
-    padding: 20px 10px;
+    padding: 20px 12px;
   }
 
   .todo-list .item {
-    padding: 20px 10px;
+    padding: 20px 12px;
   }
 
   .todo-list .complete-checkbox-container {
