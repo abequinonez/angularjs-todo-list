@@ -118,6 +118,7 @@ body {
 
 .todo-list .item .no-edit-container span {
   width: 100%;
+  cursor: default;
 }
 
 .todo-list .item .no-edit-container .delete-button-container {
