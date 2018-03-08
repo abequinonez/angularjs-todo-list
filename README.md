@@ -1,6 +1,6 @@
 # AngularJS To-Do List
 
-A simple to-do list application created to demonstrate the material learned in the AngularJS portion of Udacity's Front End Frameworks course and Koushik Kothagal's [Thinking in AngularJS](https://javabrains.io/courses/angularjs_thinking1/) course. The application was built using HTML, CSS, JavaScript, and most importantly, AngularJS (1.X).
+This project, a simple to-do list application, was created to demonstrate a basic understanding of AngularJS (1.X). The application was developed using the course material learned in the AngularJS portion of Udacity's [Front End Frameworks](https://www.udacity.com/course/front-end-frameworks--ud894) and Koushik Kothagal's [Thinking in AngularJS](https://javabrains.io/courses/angularjs_thinking1).
 
 ## Instructions
 
