@@ -57,7 +57,7 @@ app.controller('TodoListCtrl', function() {
   };
 
   // Toggle edit mode on an item
-  this.toggleEditMode = function(itemIndex, evt = null) {
+  this.toggleEditMode = function(itemIndex, evt) {
     // Declare the following variables for increased readability
     const item = this.listItems[itemIndex];
     const blurEvent = evt && evt.type === 'blur';
@@ -69,7 +69,7 @@ app.controller('TodoListCtrl', function() {
     */
     if (item.isEditable && (blurEvent || enterKeyEvent)) {
       item.isEditable = false;
-    } else if (evt === null) {
+    } else if (evt === undefined) {
       item.isEditable = true;
     }
   };
