@@ -1,4 +1,13 @@
-const app = angular.module('todoListApp', []);
+/*
+Local storage added with help from the angular-local-storage module:
+https://github.com/grevory/angular-local-storage
+*/
+const app = angular.module('todoListApp', ['LocalStorageModule']);
+
+// Set a prefix to avoid clashes with any local storage variables
+app.config(function(localStorageServiceProvider) {
+  localStorageServiceProvider.setPrefix('angularjs-todo-list');
+});
 
 /*
 Custom directive for auto-focusing on an input element by Bela Ezsias.
@@ -7,17 +16,25 @@ https://coderwall.com/p/a41lwa/angularjs-auto-focus-into-input-field-when-ng-sho
 */
 app.directive('showFocus', function($timeout) {
   return function(scope, element, attrs) {
-    scope.$watch(attrs.showFocus, function(newValue) {
-      $timeout(function() {
-        newValue && element[0].focus();
-      });
-    }, true);
+    scope.$watch(
+      attrs.showFocus,
+      function(newValue) {
+        $timeout(function() {
+          newValue && element[0].focus();
+        });
+      },
+      true
+    );
   };
 });
 
-app.controller('TodoListCtrl', function() {
+app.controller('TodoListCtrl', function(localStorageService) {
+  const itemData = 'items';
   this.inputValue = '';
-  this.listItems = [];
+
+  // Try setting the listItems array to the data in local storage. Otherwise,
+  // set it to an empty array.
+  this.listItems = localStorageService.get(itemData) || [];
 
   // Add a new item to the list of items
   this.addItem = function(evt) {
@@ -48,12 +65,14 @@ app.controller('TodoListCtrl', function() {
         hover: false
       });
       this.inputValue = '';
+      this.saveToLocalStorage();
     }
   };
 
   // Delete an item from the list of items
   this.deleteItem = function(itemIndex) {
     this.listItems.splice(itemIndex, 1);
+    this.saveToLocalStorage();
   };
 
   // Toggle edit mode on an item
@@ -69,6 +88,7 @@ app.controller('TodoListCtrl', function() {
     */
     if (item.isEditable && (blurEvent || enterKeyEvent)) {
       item.isEditable = false;
+      this.saveToLocalStorage();
     } else if (evt === undefined) {
       item.isEditable = true;
     }
@@ -81,5 +101,10 @@ app.controller('TodoListCtrl', function() {
   this.changeHoverState = function(itemIndex) {
     const item = this.listItems[itemIndex];
     item.hover = !item.hover;
+  };
+
+  // Save the list of items to local storage
+  this.saveToLocalStorage = function() {
+    localStorageService.set(itemData, this.listItems);
   };
 });
