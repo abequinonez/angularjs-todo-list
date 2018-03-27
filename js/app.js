@@ -98,13 +98,32 @@ app.controller('TodoListCtrl', function(localStorageService) {
   Change an item's hover state when the mouse enters or leaves that item's
   corresponding list element.
   */
-  this.changeHoverState = function(itemIndex) {
+  this.changeHoverState = function(itemIndex, evt) {
     const item = this.listItems[itemIndex];
-    item.hover = !item.hover;
+    item.hover = evt.type === 'mouseover' ? true : false;
   };
 
   // Save the list of items to local storage
   this.saveToLocalStorage = function() {
-    localStorageService.set(itemData, this.listItems);
+    // Create an empty array to hold copies of the list items
+    const listItemsCopy = [];
+
+    /*
+    For every item in the list of items, create a copy and add it to the
+    listItemsCopy array. A copy is made in order to remove undesired properties.
+    */
+    for (const item of this.listItems) {
+      const itemCopy = {};
+      for (const objKey in item) {
+        switch (objKey) {
+        case 'id':
+        case 'name':
+        case 'isComplete':
+          itemCopy[objKey] = item[objKey];
+        }
+      }
+      listItemsCopy.push(itemCopy);
+    }
+    localStorageService.set(itemData, listItemsCopy);
   };
 });
